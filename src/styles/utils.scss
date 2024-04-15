@@ -1,0 +1,119 @@
+@mixin breakpoint($point) {
+  @if $point == large {
+    @media only screen and (min-width: 1366px) {
+      @content;
+    }
+  } @else if $point == desktop {
+    @media only screen and (min-width: 1024px) {
+      @content;
+    }
+  } @else if $point == tablet {
+    @media only screen and (min-width: 600px) {
+      @content;
+    }
+  }
+}
+
+@mixin vertical-center {
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin self-center {
+  @include vertical-center;
+  left: 0;
+  right: 0;
+}
+
+@mixin abs-position($top, $right, $bottom, $left) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin text-shorten {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-center-column {
+  @include flex-center;
+  flex-direction: column;
+}
+
+@mixin flex-center-vert {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-center-horiz {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin box-centered($w, $h) {
+  @include flex-center;
+  width: $w;
+  height: $h;
+}
+
+@mixin hide-placeholder {
+  ::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: transparent !important;
+  }
+  :-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: transparent !important;
+  }
+  ::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: transparent !important;
+  }
+  :-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: transparent !important;
+  }
+  input::placeholder {
+    color: transparent !important;
+  }
+  textarea::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: transparent !important;
+  }
+  textarea:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: transparent !important;
+  }
+  textarea::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: transparent !important;
+  }
+  textarea:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: transparent !important;
+  }
+  textarea::placeholder {
+    color: transparent !important;
+  }
+  .multiselect__placeholder {
+    color: transparent !important;
+  }
+}

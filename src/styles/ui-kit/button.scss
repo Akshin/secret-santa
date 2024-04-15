@@ -1,0 +1,88 @@
+@mixin button-base {
+  background: var(--primary-1);
+  color: var(--white);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  min-width: 327px;
+  height: 60px;
+  position: relative;
+  &.disabled {
+    opacity: 0.5;
+    // background: initial !important;
+  }
+  .button-append-icon {
+    position: absolute;
+    right: 16px;
+  }
+}
+
+@mixin button-primary {
+  @include button-base;
+  // background: var(--secondary-1);
+  // &:hover {
+  //   background: var(--secondary-2);
+  // }
+  // &:active {
+  //   background: var(--secondary-3);
+  // }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  // background: var(--primary-1);
+  // &:hover {
+  //   background: var(--primary-2);
+  // }
+  // &:active {
+  //   background: var(--primary-3);
+  // }
+}
+
+@mixin button-text-base {
+  font-weight: 500;
+  line-height: 20px;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  &.disabled {
+    opacity: 0.3;
+    color: initial !important;
+  }
+}
+
+@mixin button-text-primary {
+  @include button-text-base;
+  color: var(--primary-1);
+  &:hover {
+    color: var(--text);
+  }
+  &:active {
+    color: var(--primary-1);
+  }
+}
+
+@mixin button-icon-base {
+  @include box-centered(32px, 32px);
+  &.disabled {
+    opacity: 0.3;
+    background: none !important;
+  }
+}
+
+@mixin button-icon-primary {
+  @include button-icon-base;
+  &:hover {
+    background: rgba(107, 81, 223, 0.1);
+  }
+  &:active {
+    background: rgba(107, 81, 223, 0.15);
+  }
+  svg {
+    color: var(--secondary-1);
+  }
+}

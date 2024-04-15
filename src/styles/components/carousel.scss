@@ -1,0 +1,61 @@
+@import url("vue3-carousel/dist/carousel.css");
+
+.event-list-wrapper {
+  .carousel__slide {
+    padding: 0 4px;
+    align-items: normal;
+  }
+}
+
+.user-profile-wrapper,
+.event-create-wrapper {
+  .carousel__slide {
+    padding: 5px;
+  }
+
+  .carousel__viewport {
+    perspective: 2000px;
+  }
+
+  .carousel__track {
+    transform-style: preserve-3d;
+  }
+
+  .carousel__slide--sliding {
+    transition: 0.5s;
+  }
+
+  .carousel__slide {
+    opacity: 0.9;
+    transform: rotateY(-20deg) scale(0.4);
+  }
+
+  .carousel__slide--active ~ .carousel__slide {
+    transform: rotateY(20deg) scale(0.7);
+  }
+
+  .carousel__slide--prev {
+    opacity: 1;
+    transform: rotateY(-10deg) scale(0.7);
+  }
+
+  .carousel__slide--next {
+    opacity: 1;
+    transform: rotateY(10deg) scale(0.7);
+  }
+
+  .carousel__slide--active {
+    opacity: 1;
+    transform: rotateY(0) scale(1);
+  }
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s ease;
+  }
+
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
+  }
+}

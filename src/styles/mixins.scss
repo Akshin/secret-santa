@@ -1,0 +1,20 @@
+$HEADER_HIGHT: 130px;
+$HEADER_HIGHT_DESKTOP: 350px;
+$LAYOUT_PADDINGS: 0 24px;
+$FOOTER_HEIGHT: 174px;
+$FOOTER_HEIGHT_DESKTOP: 193px;
+$FOOTER_MARGIN_BTN: 100px;
+
+@mixin deviceIs($breakpoint) {
+  @if $breakpoint == tablet {
+    @media only screen and (min-width: 768px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desktop {
+    @media only screen and (min-width: 1000px) {
+      @content;
+    }
+  }
+}

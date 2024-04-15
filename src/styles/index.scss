@@ -1,0 +1,236 @@
+// base styles and utills
+@import "./utils.scss", "./reset.scss", "./vars.scss";
+@import "./ui-kit/fields.scss", "./ui-kit/checkbox.scss", "./ui-kit/switch.scss",
+  "./ui-kit/button.scss", "./components/alert.scss";
+@import "./fonts.scss";
+@import "./components/datepicker.scss", "./components/carousel.scss";
+// @import "./components/datepicker.scss", "./components/pagination.scss", "./components/table.scss",
+//   "./components/alert.scss", "./components/widgets.scss", "./components/calendarfull.scss";
+
+@include checkbox-base;
+@include switch-base;
+
+.field-text-wrapper,
+.field-phone-wrapper {
+  @include field-text-base;
+}
+
+.field-textarea-wrapper {
+  @include field-textarea-base;
+}
+
+.field-datepicker-wrapper {
+  @include field-datepicker-base;
+}
+
+.field-select-wrapper {
+  @include field-select-base;
+}
+
+.field-checkbox-wrapper {
+  @include field-checkbox-base;
+}
+
+.field-number-wrapper {
+  @include field-number-base;
+}
+
+.button-wrapper {
+  @include button-base;
+}
+
+.field-textclipboard-wrapper {
+  @include field-copytext-base;
+}
+
+.field-qrcode-wrapper {
+  @include field-qr-base;
+}
+.field-radio-wrapper {
+  @include field-radio-base;
+}
+
+:root {
+  font-size: 16px;
+}
+
+html {
+  font-family: Mega Sans J;
+  color: var(--text);
+}
+
+.content {
+  min-height: calc(100vh - $FOOTER_HEIGHT);
+}
+
+.container {
+  max-width: 500px;
+  // max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.p {
+  padding: $LAYOUT_PADDINGS;
+}
+
+.nowrap {
+  text-wrap: nowrap;
+  overflow: hidden;
+}
+
+// 42px
+.text-1 {
+  font-weight: 500;
+  font-size: 2.625rem;
+}
+// 24px
+.text-2 {
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+// 20px
+.text-3 {
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+// 16px
+.text-4 {
+  font-weight: 500;
+  font-size: 1rem;
+}
+// 16px
+.text-5 {
+  font-weight: 400;
+  font-size: 1rem;
+}
+// 14px
+.text-6 {
+  font-weight: 400;
+  font-size: 0.875rem;
+}
+// 12px
+.text-7 {
+  font-weight: 400;
+  font-size: 0.75rem;
+}
+// 8px
+.text-8 {
+  font-weight: 400;
+  font-size: 0.5rem;
+}
+
+.icon-wrapper {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  fill: none;
+}
+
+.mb {
+  margin-bottom: 24px;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.icon-select-radio {
+  .radio-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .checkbox-wrapper {
+      padding: 0 20px;
+    }
+    .icon-image {
+      width: 40px;
+    }
+  }
+}
+
+.modal-prompt-wrapper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: #3333337d;
+  .modal-prompt-container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+    right: 20px;
+    padding: 13px 18px;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0px 10px 20px rgba(230, 230, 230, 0.25);
+    border-radius: 16px;
+    max-width: 500px;
+    .modal-prompt-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      .modal-prompt-icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: #9b9b9b;
+        cursor: pointer;
+      }
+      .modal-prompt-text {
+        margin-bottom: 32px;
+        color: var(--primary-1);
+        font-size: 17px;
+      }
+
+      .modal-prompt-btns {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        .modal-prompt-btns-cancel {
+          background: var(--green);
+          color: var(--primary-1);
+        }
+        .modal-prompt-btns-apply {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+.modal-wrapper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+  background: #3333337d;
+  .modal-content {
+    border-radius: 28px 28px 0px 0px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 24px;
+    background: var(--white);
+  }
+  .modal-close-btn {
+    display: none;
+  }
+}
+
+.qrcode-wrapper {
+  padding: 22px;
+  border-radius: 24px;
+  canvas {
+    border-radius: 22px;
+  }
+}

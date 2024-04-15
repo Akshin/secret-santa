@@ -1,0 +1,34 @@
+@mixin tabs-base {
+  .tabs-wrapper {
+    font-weight: 400;
+    font-size: 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    .tab-wrapper {
+      cursor: pointer;
+      text-align: center;
+      margin-right: 40px;
+      padding: 8px 12px;
+      user-select: none;
+      &:last-child {
+        margin-right: 0;
+      }
+      &:hover {
+        color: var(--text-50);
+      }
+      &.disabled {
+        color: var(--grey);
+        cursor: initial;
+      }
+      &.current {
+        color: var(--secondary-1);
+        border-bottom: 1px solid var(--secondary-1);
+      }
+    }
+  }
+}
+
+@mixin tabContent {
+  .tab-content-wrapper {
+  }
+}

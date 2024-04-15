@@ -1,0 +1,11 @@
+@mixin form-base {
+  .tabs-wrapper {
+    margin-bottom: 30px;
+  }
+  .form-simple-submit-button,
+  .form-tabs-submit-button,
+  .form-board-submit-button {
+    @include button-secondary;
+    margin-top: 20px;
+  }
+}

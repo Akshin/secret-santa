@@ -1,0 +1,106 @@
+@mixin widget-card-modal {
+  @include modal-side-right;
+  .modal-container {
+    width: 400px;
+    box-shadow: -4px 0px 15px 0px rgba(158, 159, 165, 0.25);
+    background: #fff;
+    .modal-content {
+      padding: 52px 32px 84px 32px;
+      .widget-card-inner {
+        height: 100%;
+        overflow-y: auto;
+        .widget-card-title {
+          font-weight: 400;
+          color: #000;
+          font-size: 1.25rem;
+          margin-bottom: 12px;
+        }
+        .widget-card-subtitle {
+          font-weight: 400;
+          font-size: 0.875rem;
+          color: var(--text-50);
+          margin-bottom: 20px;
+        }
+        .widget-card-status {
+          font-weight: 400;
+          font-size: 0.875rem;
+          color: var(--text);
+          margin-bottom: 40px;
+          padding: 8px;
+        }
+      }
+      .task-details-btn {
+        @include button-secondary;
+        position: absolute;
+        bottom: 40px;
+        width: 327px;
+        margin: auto;
+      }
+    }
+  }
+  .field-wrapper {
+    margin-bottom: 28px;
+    .field-label {
+      font-size: 0.75rem;
+      font-weight: 400;
+      margin-bottom: 4px;
+      color: var(--text-50);
+    }
+    .field-input,
+    .multiselect__single,
+    .multiselect__input,
+    .multiselect__placeholder,
+    .multiselect__tags {
+      padding: 0 !important;
+    }
+    .field-input-block {
+      height: 24px;
+    }
+  }
+}
+
+.widget-outer-wrapper {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100%;
+  iframe {
+    width: 100%;
+    height: 100%;
+    border-width: 0px;
+  }
+}
+.widget-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.widget {
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  .widget-title {
+    color: var(--primary-1);
+    font-weight: 400;
+    line-height: 24px;
+    font-size: 1.25rem;
+    margin-bottom: 28px;
+  }
+}
+.widget-schedule-wrapper {
+  & + .modal-wrapper {
+    @include widget-card-modal;
+  }
+}
+
+.widget-map-wrapper {
+  width: 100%;
+  height: 100%;
+  .ymaps-2-1-79-copyrights-pane {
+    display: none !important;
+  }
+  .widget-map-container {
+    width: 100%;
+    height: 100%;
+  }
+}

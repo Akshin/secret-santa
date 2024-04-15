@@ -1,0 +1,31 @@
+.table-wrapper {
+  width: 100%;
+  table {
+    margin-bottom: 28px;
+    width: 100%;
+    tr {
+      background: var(--hover);
+    }
+    thead {
+      tr {
+        th {
+          text-align: left;
+          padding: 6px 28px;
+          color: var(--text-70);
+          font-weight: 400;
+          font-size: 0.875rem;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td {
+          padding: 15px 28px;
+          color: var(--text);
+          font-weight: 400;
+          font-size: 0.875rem;
+        }
+      }
+    }
+  }
+}

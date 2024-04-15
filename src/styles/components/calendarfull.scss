@@ -1,0 +1,281 @@
+$controlls-width: 100px;
+$min-item-width: 256px;
+$item-height: 64px;
+$transition: all 0.3s ease;
+
+.widget-schedule-wrapper {
+  background: var(--hover);
+  & > .field-datepicker-wrapper {
+    display: inline-block;
+    width: auto;
+    margin-bottom: 28px;
+    .field-input-block {
+      height: 40px;
+      border: none;
+      &:hover,
+      &:active,
+      &:focus,
+      &:focus-within {
+        border: none;
+      }
+      .field-input {
+        color: var(--secondary-1);
+        font-size: 1.25rem;
+        font-weight: 400;
+        letter-spacing: 0.2px;
+      }
+    }
+  }
+  .widget-schedule-daily-wrapper {
+    .widget-schedule-daily-header {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--primary-1);
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      background: var(--hover);
+      .widget-schedule-daily-arrows-left,
+      .widget-schedule-daily-arrows-right {
+        display: flex;
+        width: $controlls-width;
+        min-width: $controlls-width;
+        height: 56px;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        svg {
+          color: var(--text);
+        }
+        &:hover:not(.disabled) {
+          background: var(--secondary-5);
+        }
+        &:active {
+          svg {
+            color: var(--secondary-1);
+          }
+        }
+        &.disabled {
+          svg {
+            color: var(--text-50) !important;
+          }
+        }
+      }
+      .widget-schedule-legend-wrapper {
+        display: flex;
+        width: 100%;
+        overflow-x: hidden;
+        & > div {
+          display: flex;
+          justify-content: flex-start;
+          transition: $transition;
+          min-width: 100%;
+        }
+        .widget-schedule-legend-wrapper {
+          // min-width: $min-item-width;
+          display: flex;
+          padding: 0 20px;
+          justify-content: start;
+          align-items: center;
+          border-left: 1px solid var(--grey);
+          user-select: none;
+          // flex-grow: 1;
+          &:last-of-type {
+            border-right: 1px solid var(--grey);
+          }
+
+          .avatar-wrapper {
+            @include avatar-base;
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
+            min-height: 32px;
+            margin-right: 20px;
+          }
+          .widget-schedule-legend-container {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            .widget-schedule-legend-title {
+              font-weight: 500;
+              color: var(--text);
+              margin-bottom: 2px;
+              display: inline;
+            }
+            .widget-schedule-legend-subtitle {
+              font-weight: 400;
+              color: var(--text-50);
+              font-size: 0.75rem;
+            }
+          }
+        }
+      }
+    }
+    .widget-schedule-inner {
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding-top: 12px;
+      position: relative;
+      .widget-schedule-inner-timeline {
+        width: $controlls-width;
+        font-weight: 400;
+        color: var(--text-50);
+        user-select: none;
+        position: absolute;
+        top: 12px;
+        &.widget-schedule-inner-timeline-left {
+          padding-left: 8px;
+          left: 0;
+          .widget-schedule-inner-timeline-item {
+            div {
+              &:after {
+                border-top: 1px solid var(--grey);
+                width: 30%;
+                height: 100%;
+                content: "";
+                display: block;
+                position: absolute;
+                top: -1px;
+                bottom: 0;
+                right: 0;
+              }
+            }
+          }
+        }
+        &.widget-schedule-inner-timeline-right {
+          padding-right: 8px;
+          right: 0;
+          .widget-schedule-inner-timeline-item {
+            flex-direction: row-reverse;
+            div {
+              text-align: right;
+              &:before {
+                border-top: 1px solid var(--grey);
+                width: 30%;
+                height: 100%;
+                content: "";
+                display: block;
+                position: absolute;
+                top: -1px;
+                bottom: 0;
+                left: 0;
+              }
+            }
+          }
+        }
+        .widget-schedule-inner-timeline-item {
+          height: $item-height;
+          display: flex;
+          justify-content: space-between;
+          align-items: start;
+          &:first-of-type {
+            div::before {
+              top: 0px !important;
+            }
+            div::after {
+              top: 0px !important;
+            }
+          }
+          div {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            span {
+              display: inline-block;
+              transform: translateY(-10px);
+            }
+          }
+        }
+      }
+      .widget-schedule-inner-container {
+        width: 100%;
+        padding: 0 100px;
+        .widget-schedule-inner-subcontainer {
+          overflow: hidden;
+          .widget-schedule-inner-trans-container {
+            display: flex;
+            transition: $transition;
+            position: relative;
+            .widget-schedule-inner-cards {
+              .widget-schedule-inner-cards-wrapper {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 256px;
+                height: 64px;
+                padding: 0 4px 0 3px;
+                .widget-schedule-card-wrapper {
+                  background: #e5e7ef;
+                  border-radius: 4px;
+                  padding: 0px 12px;
+                  border-left: 4px solid var(--grey);
+                  overflow: auto;
+                  width: 100%;
+                  height: 100%;
+                  -ms-overflow-style: none; /* Internet Explorer 10+ */
+                  scrollbar-width: none; /* Firefox */
+                  &::-webkit-scrollbar {
+                    display: none; /* Safari and Chrome */
+                  }
+                  &:hover {
+                    box-shadow: 0px 10px 15px 0px rgba(202, 202, 202, 0.25);
+                    cursor: pointer;
+                  }
+                  & > * {
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    width: 100%;
+                  }
+                  .widget-schedule-card-header {
+                    font-weight: 400;
+                    font-size: 0.875rem;
+                    color: var(--text-70);
+                    margin-bottom: 2px;
+                  }
+                  .widget-schedule-card-title {
+                    color: var(--text);
+                    font-weight: 500;
+                    margin-bottom: 4px;
+                  }
+                  .widget-schedule-card-text {
+                    font-weight: 400;
+                    font-size: 0.875rem;
+                    color: var(--text);
+                  }
+                }
+              }
+            }
+          }
+        }
+        .widget-schedule-inner-trans-inner-x {
+          // flex-grow: 1;
+          &:last-of-type {
+            .widget-schedule-inner-trans-inner-y {
+              border-right: 1px solid var(--grey);
+            }
+          }
+          .widget-schedule-inner-trans-inner-y {
+            // min-width: $min-item-width;
+            height: $item-height;
+            border-bottom: 1px solid var(--grey);
+            border-left: 1px solid var(--grey);
+            align-items: center;
+            display: flex;
+            &:first-of-type {
+              border-top: 1px solid var(--grey);
+            }
+            &:last-of-type {
+              border-bottom: none;
+            }
+            hr {
+              width: 100%;
+              opacity: 0.3;
+              border: 1px solid var(--grey);
+            }
+          }
+        }
+      }
+    }
+  }
+}

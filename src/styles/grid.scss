@@ -1,0 +1,56 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  & > .column {
+    &:not(.col-12):not(:last-child) {
+      padding-right: 10px;
+    }
+  }
+}
+
+@mixin getCol($w) {
+  width: calc(100% / 12 * $w);
+}
+
+.col-1 {
+  @include getCol(1);
+}
+.col-2 {
+  @include getCol(2);
+}
+.col-3 {
+  @include getCol(3);
+}
+.col-4 {
+  @include getCol(4);
+}
+.col-5 {
+  @include getCol(5);
+}
+.col-6 {
+  @include getCol(6);
+}
+.col-7 {
+  @include getCol(7);
+}
+.col-8 {
+  @include getCol(8);
+}
+.col-9 {
+  @include getCol(9);
+}
+.col-10 {
+  @include getCol(10);
+}
+.col-11 {
+  @include getCol(11);
+}
+.col-12 {
+  @include getCol(12);
+}
+
+@media screen and (max-width: 768px) {
+  .row > * {
+    width: 100%;
+  }
+}
